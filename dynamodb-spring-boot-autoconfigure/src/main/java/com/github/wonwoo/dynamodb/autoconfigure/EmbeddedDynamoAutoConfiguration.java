@@ -19,6 +19,7 @@ package com.github.wonwoo.dynamodb.autoconfigure;
 import com.almworks.sqlite4java.SQLite;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
 import com.amazonaws.services.dynamodbv2.local.embedded.DynamoDBEmbedded;
+import com.amazonaws.services.dynamodbv2.local.shared.access.AmazonDynamoDBLocal;
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
@@ -36,7 +37,9 @@ public class EmbeddedDynamoAutoConfiguration {
   @Bean(destroyMethod = "shutdown")
   @ConditionalOnMissingBean
   public AmazonDynamoDB amazonDynamoDB() {
-    return DynamoDBEmbedded.create().amazonDynamoDB();
+    AmazonDynamoDBLocal amazonDynamoDBLocal = DynamoDBEmbedded.create();
+    return amazonDynamoDBLocal
+            .amazonDynamoDB();
   }
 
 }

@@ -59,7 +59,6 @@
     <dependency>
       <groupId>com.almworks.sqlite4java</groupId>
       <artifactId>sqlite4java</artifactId>
-      <optional>true</optional>
     </dependency>
 
     <dependency>

@@ -7,6 +7,8 @@
     <artifactId>dynamodb-spring-boot</artifactId>
     <version>1.0.2-SNAPSHOT</version>
 
+
+
     <developers>
         <developer>
             <name>wonwoo</name>
@@ -34,6 +36,7 @@
     </distributionManagement>
 
     <modules>
+        <module>spring-boot-dynamodb-dependencies</module>
         <module>dynamodb-spring-boot-core</module>
         <module>dynamodb-spring-boot-autoconfigure</module>
         <module>dynamodb-spring-boot-starter</module>
@@ -73,71 +76,13 @@
         <dependencies>
             <dependency>
                 <groupId>com.github.wonwoo</groupId>
-                <artifactId>dynamodb-spring-boot-starter-test</artifactId>
+                <artifactId>spring-boot-dynamodb-dependencies</artifactId>
                 <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.github.wonwoo</groupId>
-                <artifactId>dynamodb-spring-boot-starter</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.github.wonwoo</groupId>
-                <artifactId>dynamodb-spring-boot-core</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.github.wonwoo</groupId>
-                <artifactId>dynamodb-spring-boot-autoconfigure</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.github.wonwoo</groupId>
-                <artifactId>dynamodb-spring-boot-test-autoconfigure</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.github.derjust</groupId>
-                <artifactId>spring-data-dynamodb</artifactId>
-                <version>${spring-data-dynamodb.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.amazonaws</groupId>
-                <artifactId>DynamoDBLocal</artifactId>
-                <version>${dynamodb-local.version}</version>
-                <optional>true</optional>
-            </dependency>
-
-            <dependency>
-                <groupId>com.amazonaws</groupId>
-                <artifactId>aws-java-sdk-bom</artifactId>
-                <version>${aws-java-sdk.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-            <dependency>
-                <groupId>com.almworks.sqlite4java</groupId>
-                <artifactId>sqlite4java</artifactId>
-                <version>${sqlite4java.version}</version>
-                <optional>true</optional>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-dependencies</artifactId>
-                <version>${spring-boot.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
         </dependencies>
     </dependencyManagement>
-
-    <repositories>
-        <repository>
-            <id>dynamodblocal</id>
-            <name>AWS DynamoDB Local Release Repository</name>
-            <url>https://s3-us-west-2.amazonaws.com/dynamodb-local/release</url>
-        </repository>
-    </repositories>
 
     <profiles>
         <profile>
@@ -168,6 +113,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.1</version>
                 <configuration>
                     <source>1.8</source>
                     <target>1.8</target>
@@ -264,13 +210,21 @@
                         <jacocoReport>dynamodb-spring-boot-autoconfigure/target/site/jacoco-ut/jacoco.xml</jacocoReport>
                         <jacocoReport>dynamodb-spring-boot-core/target/site/jacoco-it/jacoco.xml</jacocoReport>
                         <jacocoReport>dynamodb-spring-boot-core/target/site/jacoco-ut/jacoco.xml</jacocoReport>
-                        <jacocoReport>dynamodb-spring-boot-test-autoconfigure/target/site/jacoco-it/jacoco.xml</jacocoReport>
-                        <jacocoReport>dynamodb-spring-boot-test-autoconfigure/target/site/jacoco-ut/jacoco.xml</jacocoReport>
+                        <jacocoReport>dynamodb-spring-boot-test-autoconfigure/target/site/jacoco-it/jacoco.xml
+                        </jacocoReport>
+                        <jacocoReport>dynamodb-spring-boot-test-autoconfigure/target/site/jacoco-ut/jacoco.xml
+                        </jacocoReport>
                     </jacocoReports>
                 </configuration>
             </plugin>
 
         </plugins>
     </build>
-
+    <repositories>
+        <repository>
+            <id>dynamodblocal</id>
+            <name>AWS DynamoDB Local Release Repository</name>
+            <url>https://s3-us-west-2.amazonaws.com/dynamodb-local/release</url>
+        </repository>
+    </repositories>
 </project>
