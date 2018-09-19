@@ -175,6 +175,21 @@ public class PersonRepositoryTests {
 - [spring-data-dynamodb-wiki](https://github.com/spring-data-dynamodb/spring-data-dynamodb/wiki)
 
 
- 
+# Maven configuration
+
+In order to download/upload dependencies to pioneer labs private repository repository please follow the follwoing steps:
+
+Open your maven settings.xml and add
+
+
+      <server>
+        <id>pioneerlabsnexusbucket</id>
+        <username>{AWS KEY}</username>
+        <password>{AWS SECRET MAVEN ENCRYPTED}</password>
+      </server>
+      
+NOTE: encrypt the AWS secret using maven encryption
+
+https://maven.apache.org/guides/mini/guide-encryption.html
 
 

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.github.wonwoo</groupId>
+    <artifactId>spring-boot-dynamodb-dependencies</artifactId>
+    <packaging>pom</packaging>
+
+    <name>spring-boot-dynamodb-dependencies</name>
+
+    <parent>
+        <artifactId>dynamodb-spring-boot</artifactId>
+        <groupId>com.github.wonwoo</groupId>
+        <version>1.0.2-SNAPSHOT</version>
+    </parent>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+        <spring-boot.version>2.0.0.RELEASE</spring-boot.version>
+        <spring-data-dynamodb.version>5.0.2</spring-data-dynamodb.version>
+        <dynamodb-local.version>1.11.86</dynamodb-local.version>
+        <aws-java-sdk.version>1.11.232</aws-java-sdk.version>
+        <sqlite4java.version>1.0.392</sqlite4java.version>
+        <maven-surefire-plugin.version>2.20</maven-surefire-plugin.version>
+        <maven.jacoco.version>0.7.6.201602180812</maven.jacoco.version>
+        <coveralls.version>4.3.0</coveralls.version>
+        <jacoco.it.execution.data.file>${project.build.directory}/coverage-reports/jacoco-it.exec
+        </jacoco.it.execution.data.file>
+        <jacoco.ut.execution.data.file>${project.build.directory}/coverage-reports/jacoco-ut.exec
+        </jacoco.ut.execution.data.file>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.testSource>1.8</maven.compiler.testSource>
+        <maven.compiler.testTarget>1.8</maven.compiler.testTarget>
+        <bintray.repo>wonwoo/dynamodb-spring-boot</bintray.repo>
+        <bintray.package>dynamodb-spring-boot</bintray.package>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.github.wonwoo</groupId>
+                <artifactId>dynamodb-spring-boot-starter-test</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.wonwoo</groupId>
+                <artifactId>dynamodb-spring-boot-starter</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.wonwoo</groupId>
+                <artifactId>dynamodb-spring-boot-autoconfigure</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.wonwoo</groupId>
+                <artifactId>dynamodb-spring-boot-test-autoconfigure</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.derjust</groupId>
+                <artifactId>spring-data-dynamodb</artifactId>
+                <version>${spring-data-dynamodb.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.amazonaws</groupId>
+                <artifactId>DynamoDBLocal</artifactId>
+                <version>${dynamodb-local.version}</version>
+                <optional>true</optional>
+            </dependency>
+
+            <dependency>
+                <groupId>com.amazonaws</groupId>
+                <artifactId>aws-java-sdk-bom</artifactId>
+                <version>${aws-java-sdk.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.almworks.sqlite4java</groupId>
+                <artifactId>sqlite4java</artifactId>
+                <version>${sqlite4java.version}</version>
+                <optional>true</optional>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+
+
+
+</project>
